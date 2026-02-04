@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+bool isPalindrome(int x) {
+    if (x < 0 || (x % 10 == 0 && x != 0)) return false;
+
+    int reverted = 0;
+    while (x > reverted) {
+        reverted = reverted * 10 + x % 10;
+        x /= 10;
+    }
+
+    return (x == reverted || x == reverted / 10);
+}
+
+int main() {
+    int x;
+    cout << "Enter number: ";
+    cin >> x;
+
+    if (isPalindrome(x))
+        cout << "Palindrome" << endl;
+    else
+        cout << "Not Palindrome" << endl;
+
+    return 0;
+}
